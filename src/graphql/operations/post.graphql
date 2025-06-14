@@ -1,0 +1,15 @@
+query GetPosts {
+  getPosts {
+    id
+    title
+    content
+  }
+}
+
+mutation AddPost($input: AddPostInput!) {
+  addPost(input: $input) {
+    id
+    title
+    content
+  }
+}
