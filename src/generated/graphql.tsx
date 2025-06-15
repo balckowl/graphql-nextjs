@@ -10,16 +10,18 @@ export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' |
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
+  ID: { input: number; output: number; }
   String: { input: string; output: string; }
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
+  content_String_NotNull_minLength_1_maxLength_3: { input: string; output: string; }
+  title_String_NotNull_minLength_1_maxLength_3: { input: string; output: string; }
 };
 
 export type AddPostInput = {
-  content: Scalars['String']['input'];
-  title: Scalars['String']['input'];
+  content: Scalars['content_String_NotNull_minLength_1_maxLength_3']['input'];
+  title: Scalars['title_String_NotNull_minLength_1_maxLength_3']['input'];
 };
 
 export type Mutation = {
@@ -53,14 +55,14 @@ export type QueryGetPostArgs = {
 export type GetPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostsQuery = { __typename?: 'Query', getPosts: Array<{ __typename?: 'Post', id: string, title: string, content: string }> };
+export type GetPostsQuery = { __typename?: 'Query', getPosts: Array<{ __typename?: 'Post', id: number, title: string, content: string }> };
 
 export type AddPostMutationVariables = Exact<{
   input: AddPostInput;
 }>;
 
 
-export type AddPostMutation = { __typename?: 'Mutation', addPost: { __typename?: 'Post', id: string, title: string, content: string } };
+export type AddPostMutation = { __typename?: 'Mutation', addPost: { __typename?: 'Post', id: number, title: string, content: string } };
 
 
 export const GetPostsDocument = gql`

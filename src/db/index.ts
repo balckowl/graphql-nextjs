@@ -4,3 +4,5 @@ export const db = drizzle({ connection: {
   url: process.env.TURSO_CONNECTION_URL!,
   authToken: process.env.TURSO_AUTH_TOKEN!,
 }});
+
+export type Db = typeof db;

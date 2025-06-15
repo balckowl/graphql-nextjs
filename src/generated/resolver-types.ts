@@ -1,4 +1,4 @@
-import { GraphQLResolveInfo } from 'graphql';
+import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -14,11 +14,13 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
+  content_String_NotNull_minLength_1_maxLength_3: { input: string; output: string; }
+  title_String_NotNull_minLength_1_maxLength_3: { input: string; output: string; }
 };
 
 export type AddPostInput = {
-  content: Scalars['String']['input'];
-  title: Scalars['String']['input'];
+  content: Scalars['content_String_NotNull_minLength_1_maxLength_3']['input'];
+  title: Scalars['title_String_NotNull_minLength_1_maxLength_3']['input'];
 };
 
 export type Mutation = {
@@ -129,6 +131,8 @@ export type ResolversTypes = {
   Post: ResolverTypeWrapper<Post>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
+  content_String_NotNull_minLength_1_maxLength_3: ResolverTypeWrapper<Scalars['content_String_NotNull_minLength_1_maxLength_3']['output']>;
+  title_String_NotNull_minLength_1_maxLength_3: ResolverTypeWrapper<Scalars['title_String_NotNull_minLength_1_maxLength_3']['output']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -142,6 +146,8 @@ export type ResolversParentTypes = {
   Post: Post;
   Query: {};
   String: Scalars['String']['output'];
+  content_String_NotNull_minLength_1_maxLength_3: Scalars['content_String_NotNull_minLength_1_maxLength_3']['output'];
+  title_String_NotNull_minLength_1_maxLength_3: Scalars['title_String_NotNull_minLength_1_maxLength_3']['output'];
 };
 
 export type ConstraintDirectiveArgs = {
@@ -181,10 +187,20 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   getPosts?: Resolver<Array<ResolversTypes['Post']>, ParentType, ContextType>;
 };
 
+export interface Content_String_NotNull_MinLength_1_MaxLength_3ScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['content_String_NotNull_minLength_1_maxLength_3'], any> {
+  name: 'content_String_NotNull_minLength_1_maxLength_3';
+}
+
+export interface Title_String_NotNull_MinLength_1_MaxLength_3ScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['title_String_NotNull_minLength_1_maxLength_3'], any> {
+  name: 'title_String_NotNull_minLength_1_maxLength_3';
+}
+
 export type Resolvers<ContextType = any> = {
   Mutation?: MutationResolvers<ContextType>;
   Post?: PostResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  content_String_NotNull_minLength_1_maxLength_3?: GraphQLScalarType;
+  title_String_NotNull_minLength_1_maxLength_3?: GraphQLScalarType;
 };
 
 export type DirectiveResolvers<ContextType = any> = {

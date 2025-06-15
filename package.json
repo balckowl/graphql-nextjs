@@ -16,14 +16,18 @@
     "@as-integrations/next": "^3.2.0",
     "@graphql-codegen/cli": "^5.0.7",
     "@graphql-tools/schema": "^10.0.23",
+    "@hookform/resolvers": "^5.1.1",
     "@libsql/client": "^0.15.9",
     "apollo-server-errors": "^3.3.1",
     "drizzle-orm": "^0.44.2",
     "graphql": "^16.11.0",
+    "graphql-codegen-typescript-validation-schema": "^0.17.1",
     "graphql-constraint-directive": "^6.0.0",
     "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.57.0",
+    "zod": "^3.25.64"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

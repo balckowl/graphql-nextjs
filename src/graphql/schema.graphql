@@ -10,7 +10,7 @@ type Query {
 }
 
 input AddPostInput {
-  title: String! @constraint(minLength: 1, maxLength: 3)
+  title: String! @constraint(minLength: 1, maxLength: 3) 
   content: String! @constraint(minLength: 1, maxLength: 3)
 }
 

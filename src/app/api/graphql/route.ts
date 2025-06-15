@@ -5,6 +5,7 @@ import { resolvers } from "@/graphql/resolvers";
 import { constraintDirectiveTypeDefs, constraintDirective } from "graphql-constraint-directive";
 import { makeExecutableSchema } from "@graphql-tools/schema"
 import { db } from "@/db";
+import { NextRequest } from "next/server";
 
 let schema = makeExecutableSchema({
   typeDefs: [constraintDirectiveTypeDefs, typeDefs],
@@ -17,8 +18,8 @@ const server = new ApolloServer({
   schema,
 })
 
-const handler = startServerAndCreateNextHandler(server, {
-  context: async req => ({ req, db }),
+const handler = startServerAndCreateNextHandler<NextRequest>(server, {
+  context: async () => ({ db }),
 })
 
 export { handler as GET, handler as POST };
