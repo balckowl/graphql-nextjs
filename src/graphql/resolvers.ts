@@ -1,18 +1,16 @@
-import { db } from "@/db";
 import { postsTable } from "@/db/schema";
 import { Resolvers } from "@/generated/resolver-types";
-import type { Db } from "@/db";
 
 
 export const resolvers: Resolvers = {
   Query: {
-    getPosts: async (_, {}, ctx: { db: Db }) => {
+    getPosts: async (_, {}, ctx) => {
       const q = await ctx.db.select().from(postsTable);
       return q;
     },
   },
   Mutation: {
-    addPost: async (_, { input }, ctx: { db: Db }) => {
+    addPost: async (_, { input }, ctx) => {
       const [post] = await ctx.db
         .insert(postsTable)
         .values({

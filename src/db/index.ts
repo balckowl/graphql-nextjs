@@ -6,3 +6,7 @@ export const db = drizzle({ connection: {
 }});
 
 export type Db = typeof db;
+
+export type Context = {
+  db: Db;
+};

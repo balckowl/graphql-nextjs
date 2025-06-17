@@ -6,6 +6,7 @@ import { constraintDirectiveTypeDefs, constraintDirective } from "graphql-constr
 import { makeExecutableSchema } from "@graphql-tools/schema"
 import { db } from "@/db";
 import { NextRequest } from "next/server";
+import { Resolvers } from "@/generated/resolver-types";
 
 let schema = makeExecutableSchema({
   typeDefs: [constraintDirectiveTypeDefs, typeDefs],
@@ -14,7 +15,7 @@ let schema = makeExecutableSchema({
 
 schema = constraintDirective()(schema);
 
-const server = new ApolloServer({
+const server = new ApolloServer<Resolvers>({
   schema,
 })
 

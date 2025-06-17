@@ -34,6 +34,7 @@ const config: CodegenConfig = {
           content_String_NotNull_minLength_1_maxLength_3: "string",
           title_String_NotNull_minLength_1_maxLength_3: "string"
         },
+        contextType: "../db#Context",
         strictScalars: true,
       }
     },
