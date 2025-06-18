@@ -3,6 +3,7 @@ query GetPosts {
     id
     title
     content
+    userId
   }
 }
 
@@ -11,5 +12,6 @@ mutation AddPost($input: AddPostInput!) {
     id
     title
     content
+    userId
   }
 }

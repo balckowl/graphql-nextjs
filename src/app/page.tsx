@@ -1,6 +1,7 @@
 
 import { GetPostsDocument, GetPostsQuery, useGetPostsQuery } from "@/generated/graphql";
 import { query } from "@/lib/server-client";
+import LoginButton from "./components/LoginButton";
 
 export default async function Page() {
 
@@ -18,6 +19,7 @@ export default async function Page() {
           <p>{post.content}</p>
         </div>
       ))}
+      <LoginButton />
     </div>
   );
 }

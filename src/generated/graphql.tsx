@@ -39,6 +39,7 @@ export type Post = {
   content: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   title: Scalars['String']['output'];
+  userId: Scalars['String']['output'];
 };
 
 export type Query = {
@@ -55,14 +56,14 @@ export type QueryGetPostArgs = {
 export type GetPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostsQuery = { __typename?: 'Query', getPosts: Array<{ __typename?: 'Post', id: number, title: string, content: string }> };
+export type GetPostsQuery = { __typename?: 'Query', getPosts: Array<{ __typename?: 'Post', id: number, title: string, content: string, userId: string }> };
 
 export type AddPostMutationVariables = Exact<{
   input: AddPostInput;
 }>;
 
 
-export type AddPostMutation = { __typename?: 'Mutation', addPost: { __typename?: 'Post', id: number, title: string, content: string } };
+export type AddPostMutation = { __typename?: 'Mutation', addPost: { __typename?: 'Post', id: number, title: string, content: string, userId: string } };
 
 
 export const GetPostsDocument = gql`
@@ -71,6 +72,7 @@ export const GetPostsDocument = gql`
     id
     title
     content
+    userId
   }
 }
     `;
@@ -112,6 +114,7 @@ export const AddPostDocument = gql`
     id
     title
     content
+    userId
   }
 }
     `;

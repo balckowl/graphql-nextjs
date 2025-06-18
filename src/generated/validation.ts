@@ -35,6 +35,7 @@ export type Post = {
   content: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   title: Scalars['String']['output'];
+  userId: Scalars['String']['output'];
 };
 
 export type Query = {

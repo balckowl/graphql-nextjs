@@ -39,6 +39,7 @@ export type Post = {
   content: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   title: Scalars['String']['output'];
+  userId: Scalars['String']['output'];
 };
 
 export type Query = {
@@ -180,6 +181,7 @@ export type PostResolvers<ContextType = Context, ParentType extends ResolversPar
   content?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  userId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -211,11 +213,11 @@ export type DirectiveResolvers<ContextType = Context> = {
 export type GetPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostsQuery = { __typename?: 'Query', getPosts: Array<{ __typename?: 'Post', id: number, title: string, content: string }> };
+export type GetPostsQuery = { __typename?: 'Query', getPosts: Array<{ __typename?: 'Post', id: number, title: string, content: string, userId: string }> };
 
 export type AddPostMutationVariables = Exact<{
   input: AddPostInput;
 }>;
 
 
-export type AddPostMutation = { __typename?: 'Mutation', addPost: { __typename?: 'Post', id: number, title: string, content: string } };
+export type AddPostMutation = { __typename?: 'Mutation', addPost: { __typename?: 'Post', id: number, title: string, content: string, userId: string } };

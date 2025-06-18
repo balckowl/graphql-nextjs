@@ -6,6 +6,7 @@ export const resolvers: Resolvers = {
   Query: {
     getPosts: async (_, {}, ctx) => {
       const q = await ctx.db.select().from(postsTable);
+      console.log(q)
       return q;
     },
   },
